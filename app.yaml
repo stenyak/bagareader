@@ -1,0 +1,10 @@
+application: bagareader
+version: 1-prealpha
+runtime: python
+api_version: 1
+
+handlers:
+- url: /_wave/.*
+  script: bagareader.py
+- url: /assets
+  static_dir: assets

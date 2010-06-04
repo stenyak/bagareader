@@ -26,30 +26,32 @@ def htmlToNicePlainText(htmlText):
     return result
 
 def printEntry(entry):
-        print "/-----------------------------------"
-        title = ""
-        content = ""
+    result = ""
+    result += "/-----------------------------------"
+    title = ""
+    content = ""
 
-        if "title" in entry:
-            title += entry["title"]
+    if "title" in entry:
+        title += entry["title"]
 
-        if "author" in entry:
-            title += " (by %r)" %entry["author"]
+    if "author" in entry:
+        title += " (by %r)" %entry["author"]
 
-        if "summary" in entry:
-            summary = entry["summary"]
-            #summary = htmlToSimplePlainText(summary)
-            summary = htmlToNicePlainText(summary)
-            content += summary
+    if "summary" in entry:
+        summary = entry["summary"]
+        #summary = htmlToSimplePlainText(summary)
+        summary = htmlToNicePlainText(summary)
+        content += summary
 
-        if "id" in entry:
-            content += "\n"
-            content += "[id:%r]" %entry["id"]
+    if "id" in entry:
+        content += "\n"
+        content += "[id:%r]" %entry["id"]
 
-        print title
-        print content
-        print "\____________________________________"
-    
+    result += "\n%r" % title
+    result += "\n%r" % content
+    result += "\n\____________________________________"
+    print result
+    return result 
 
 def getFeed(url):
     result = None
@@ -89,24 +91,31 @@ def getEntries(url):
         print "Couldn't get feed."
 
 def printFeed(url):
+    result = ""
     entries = getEntries(url)
     if entries:
         if len(entries) > 0:
             for entry in entries:
-                printEntry (entry)
-                print ""
+                result += printEntry (entry)
+                result += "\n"
         else:
-            print "Empty feed."
+            result += "\n%r" % "Empty feed."
+            print result
     else:
-        print "Got no feed."
+        result += "\n%r" %"Got no feed."
+        print result
+    return result
 
 def printLastEntry(url):
+    result = ""
     entries = getEntries(url)
     if entries:
         if len(entries) > 0:
-            printEntry (entries[-1])
+            result += printEntry (entries[-1])
         else:
-            print "Empty feed."
+            result += "\n%r" %"Empty feed."
+            print result
+    return result
 
 
 if __name__ == '__main__':
