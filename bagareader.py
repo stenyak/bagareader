@@ -27,9 +27,9 @@ def OnWaveletParticipantsChanged(event, wavelet):
     #    wavelet.reply("\nHi : " + newParticipant)
 
 if __name__ == '__main__':
-    myRobot = robot.Robot('v2waveapi', 
-        image_url='http://v2waveapi.appspot.com/icon.png',
-        profile_url='http://v2waveapi.appspot.com/')
+    myRobot = robot.Robot('bagareader', 
+        image_url='http://bagareader.appspot.com/bagareader.png',
+        profile_url='http://code.google.com/p/bagareader");
     myRobot.register_handler(events.WaveletParticipantsChanged, OnWaveletParticipantsChanged)
     myRobot.register_handler(events.WaveletSelfAdded, OnWaveletSelfAdded)
     appengine_robot_runner.run(myRobot)
