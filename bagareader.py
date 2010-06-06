@@ -27,9 +27,9 @@ def OnWaveletParticipantsChanged(event, wavelet):
     #    wavelet.reply("\nHi : " + newParticipant)
 
 if __name__ == '__main__':
-    myRobot = robot.Robot('bagareader', 
-        image_url='http://bagareader.appspot.com/bagareader.png',
-        profile_url='http://code.google.com/p/bagareader");
+    myRobot = robot.Robot('BagaReader helper bot', 
+        image_url='http://bagareader.googlecode.com/hg/bagareader.png',
+        profile_url='http://code.google.com/p/bagareader');
     myRobot.register_handler(events.WaveletParticipantsChanged, OnWaveletParticipantsChanged)
     myRobot.register_handler(events.WaveletSelfAdded, OnWaveletSelfAdded)
     appengine_robot_runner.run(myRobot)
