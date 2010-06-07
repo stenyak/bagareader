@@ -89,6 +89,7 @@ def getEntries(url):
         return feed.entries
     else:
         print "Couldn't get feed."
+        raise Exception("Couldn't get feed %r", url)
 
 def printFeed(url):
     result = ""
