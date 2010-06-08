@@ -50,7 +50,6 @@ def printEntry(entry):
     result += "\n%r" % title
     result += "\n%r" % content
     result += "\n\____________________________________"
-    print result
     return result 
 
 def getFeed(url):
@@ -101,10 +100,8 @@ def printFeed(url):
                 result += "\n"
         else:
             result += "\n%r" % "Empty feed."
-            print result
     else:
         result += "\n%r" %"Got no feed."
-        print result
     return result
 
 def printLastEntry(url):
@@ -115,7 +112,6 @@ def printLastEntry(url):
             result += printEntry (entries[-1])
         else:
             result += "\n%r" %"Empty feed."
-            print result
     return result
 
 
