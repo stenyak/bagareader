@@ -1,5 +1,5 @@
 #!/bin/bash
-appengineDir="$HOME/usr/shared/google_appengine"
+appengineDir="$HOME/usr/share/google_appengine"
 waveapiDir="./waveapi"
 echo " >>> Checking out project dependencies"
 bash deps.sh
