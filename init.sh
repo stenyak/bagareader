@@ -1,6 +1,17 @@
 #!/bin/bash
-appengineDir="$HOME/usr/share/google_appengine"
+echo "==================================================================="
+echo "This script will set up your development environment for BagaReader"
+echo "==================================================================="
+echo ""
+
+prefix="$HOME/usr"
+
+appengineDir="$prefix/share/google_appengine"
 waveapiDir="./waveapi"
+binDir="$prefix/bin"
+
+mkdir -p appengineDir waveapiDir binDir
+
 echo " >>> Checking out project dependencies"
 bash deps.sh
 echo " >>> Checking out waveapi to $waveapiDir"
@@ -8,6 +19,8 @@ svn co http://wave-robot-python-client.googlecode.com/svn/trunk/src/waveapi wave
 echo " >>> Checking out appengine to $appengineDir"
 svn co http://googleappengine.googlecode.com/svn/trunk/python $appengineDir
 echo " >>> Creating symlinks"
-ln -fst ~/usr/bin/ $appengineDir/{dev_appserver.py,appcfg.py}
-echo " >>> You can now serve the app locally using 'dev_appserver.py -p 10080 .'"
-echo " >>> You can now deploy the app to server with 'appcfg.py update .'"
+ln -fst $prefix/bin/ $appengineDir/{dev_appserver.py,appcfg.py}
+echo ""
+echo "==================================================================="
+echo "You can now deploy the bagareader bot to server using './deploy.sh'"
+echo "==================================================================="
