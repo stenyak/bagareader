@@ -1,5 +1,5 @@
 application: bagareader
-version: 1-prealpha
+version: alpha-1
 runtime: python
 api_version: 1
 
